@@ -1,0 +1,108 @@
+ /*------------------------------------*\
+     IMPORT FONT
+ \*------------------------------------*/
+
+ @font-face {
+   font-family: 'OpenSans-Semibold';
+   src: url('../font/OpenSans-Semibold.eot');
+   src: url('../font/OpenSans-Semibold.woff') format('woff'),
+        url('../font/OpenSans-Semibold.ttf') format('truetype'),
+        url('../font/OpenSans-Semibold.svg') format('svg');
+ }
+ @font-face {
+   font-family: 'OpenSans-Light';
+   src: url('../font/OpenSans-Light.eot');
+   src: url('../font/OpenSans-Light.woff') format('woff'),
+        url('../font/OpenSans-Light.ttf') format('truetype'),
+        url('../font/OpenSans-Light.svg') format('svg');
+ }
+ @font-face {
+   font-family: 'OpenSans-Regular';
+   src: url('../font/OpenSans-Regular.eot');
+   src: url('../font/OpenSans-Regular.woff') format('woff'),
+        url('../font/OpenSans-Regular.ttf') format('truetype'),
+        url('../font/OpenSans-Regular.svg') format('svg');
+ }
+ @font-face {
+   font-family: 'OpenSans-Bold';
+   src: url('../font/OpenSans-Bold.eot');
+   src: url('../font/OpenSans-Bold.woff') format('woff'),
+        url('../font/OpenSans-Bold.ttf') format('truetype'),
+        url('../font/OpenSans-Bold.svg') format('svg');
+ }
+
+
+
+$mainFont: 'OpenSans-Regular';
+$mainFontHeavier: 'OpenSans-Semibold';
+$mainFontHeavy: 'OpenSans-Bold';
+$mainFontLight:'OpenSans-Light';
+
+ $grisFonce : #111111;
+ $blanc : #ffffff;
+ $noir : #000000;
+
+
+ 
+$backgroundColor: $blanc;
+$backgroundColorHeader: $noir;
+$backgroundColorFooter: $grisFonce;
+
+$textColor: #ffffff;
+$textColor2: #000000; // Noir
+$textColor3: #2c292d; // Gris foncé
+$textColor4: #97bf0d; // Vert clair
+$textColor5: #E7501E; // orange clair
+
+
+/** Components */
+$backgroundColorInput:#f5f5f5; // blanc cassé
+$backgroundColorInput2:#333333; // gris très foncé
+
+ /*------------------------------------*\
+     GENERAL SETTING
+ \*------------------------------------*/
+body{
+    background: $backgroundColor;
+    font-family: $mainFont, arial, sans-serif;
+    width: 100%;
+}
+
+h1{
+    font-family: $mainFontHeavy, arial, sans-serif;
+}
+
+h2{
+    font-family: $mainFontLight, arial, sans-serif;
+}
+h3{
+    font-family: $mainFontHeavy, arial, sans-serif;
+}
+
+
+h2, h3{
+    text-transform:uppercase;
+    margin-bottom:10px;
+    font-size:35px;
+    color:$textColor;
+}
+
+p{
+    font-family: $mainFont, arial, sans-serif;
+    font-size:16px;
+	margin-bottom:20px;
+    color: $textColor;
+}
+
+a{
+    text-decoration: none;
+    color: $textColor;
+}
+
+a, a:hover, a:active, a:focus{
+    font-family: $mainFont, arial, sans-serif;
+}
+
+form input {
+    font-family: $mainFontHeavy, arial, sans-serif;
+}
