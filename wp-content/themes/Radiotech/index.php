@@ -41,6 +41,7 @@ get_header(); ?>
 			// End the loop.
 			endwhile;
 
+		
 			// Previous/next page navigation.
 			the_posts_pagination( array(
 				'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
