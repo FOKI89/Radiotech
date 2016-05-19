@@ -31,5 +31,3 @@ require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/utils.php';
 
 pll_register_string('radiotech','Coucou, le monde');
-
-
