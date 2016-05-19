@@ -6,7 +6,6 @@ Version: 0.0.1
 */
 $cf7PluginDir = plugin_dir_path(__FILE__);
 
-
 add_action("wpcf7_before_send_mail", "action_wpcf7_before_send_mail");
 function action_wpcf7_before_send_mail($cf7) {
   $submission = WPCF7_Submission::get_instance();
