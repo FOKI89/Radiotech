@@ -19,6 +19,8 @@ class radiotech_Main
     {
         $this->create_CPTs();
         $this->create_taxonomies();
+        //$users = new radiotech_User();
+        
     }
 
     private function create_CPTs()
@@ -46,7 +48,7 @@ class radiotech_Main
             'remove_featured_image' => __('Retirer l\'image d\'illustration', 'radiotech'),
             'use_featured_image' => __('Utiliser comme image d\'illustration', 'radiotech'),
             'insert_into_item' => __('Insérer dans les émissions', 'radiotech'),
-            'uploaded_to_this_item' => __('Uploader pour cet émission', 'radiotech'),
+            'uploaded_to_this_item' => __('Uploader pour cette émission', 'radiotech'),
             'items_list' => __('Liste des émissions', 'radiotech'),
             'items_list_navigation' => __('Liste de la navigation d\'émissions', 'radiotech'),
             'filter_items_list' => __('Filtre de la liste d\'émissions', 'radiotech'),
@@ -55,7 +57,7 @@ class radiotech_Main
             'label' => __('Emission', 'radiotech'),
             'description' => __('Une émission publiée par un contributeur', 'radiotech'),
             'labels' => $labels,
-            'supports' => array('excerpt', 'author', 'comments', 'editor',),
+            'supports' => array('editor', 'title'),
             'taxonomies' => array('category', 'post_tag'),
             'hierarchical' => false,
             'public' => true,
@@ -77,7 +79,7 @@ class radiotech_Main
         // Register Custom Post Type Badges
         $labels = array(
             'name' => _x('Badges', 'Post Type General Name', 'radiotech'),
-            'singular_name' => _x('Emission', 'Post Type Singular Name', 'radiotech'),
+            'singular_name' => _x('Badge', 'Post Type Singular Name', 'radiotech'),
             'menu_name' => __('Badges', 'radiotech'),
             'name_admin_bar' => __('Badges', 'radiotech'),
             'archives' => __('Archives de badge', 'radiotech'),
@@ -90,23 +92,23 @@ class radiotech_Main
             'update_item' => __('Mettre à jour le badge', 'radiotech'),
             'view_item' => __('Voir le badge', 'radiotech'),
             'search_items' => __('Rechercher un badge', 'radiotech'),
-            'not_found' => __('Non trouvée', 'radiotech'),
+            'not_found' => __('Non trouvé', 'radiotech'),
             'not_found_in_trash' => __('Non trouvée dans la corbeille', 'radiotech'),
             'featured_image' => __('Image d\'illustration', 'radiotech'),
             'set_featured_image' => __('Ajouter une image d\'illustration', 'radiotech'),
             'remove_featured_image' => __('Retirer l\'image d\'illustration', 'radiotech'),
             'use_featured_image' => __('Utiliser comme image d\'illustration', 'radiotech'),
             'insert_into_item' => __('Insérer dans les badges', 'radiotech'),
-            'uploaded_to_this_item' => __('Uploader pour cet émission', 'radiotech'),
+            'uploaded_to_this_item' => __('Uploader pour ce badge', 'radiotech'),
             'items_list' => __('Liste des badges', 'radiotech'),
             'items_list_navigation' => __('Liste de la navigation des badges', 'radiotech'),
             'filter_items_list' => __('Filtre de la liste de badges', 'radiotech'),
         );
         $args = array(
-            'label' => __('Emission', 'radiotech'),
-            'description' => __('Un badge publiée par un contributeur', 'radiotech'),
+            'label' => __('Badge', 'radiotech'),
+            'description' => __('Un badge', 'radiotech'),
             'labels' => $labels,
-            'supports' => array('excerpt', 'author', 'comments', 'editor',),
+            'supports' => array('author', 'editor', 'title'),
             'taxonomies' => array('category', 'post_tag'),
             'hierarchical' => false,
             'public' => true,
@@ -131,9 +133,16 @@ class radiotech_Main
 
     }
 
+    public function upgradeUser($user_id)
+    {
+        $wp_user_object = new WP_User($user_id);
+        $wp_user_object->set_role('contributor');
+    }
+
 
 }
 
 // Déclaration Class radiotech_Main
 $radiotech = new radiotech_Main();
 add_action('init', array($radiotech, 'init'), 0);
+add_action('um_after_user_is_approved', array($radiotech, 'upgradeUser') , 10 );
