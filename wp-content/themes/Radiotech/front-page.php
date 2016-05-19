@@ -22,6 +22,10 @@ get_header();
                     _e("Sorry, no content matches your request", "radiotech");
                 }
                 ?>
+
+                <form action="#">
+                    <input type="file">
+                </form>
             </div><!-- Fin div content -->
         </div><!-- Fin div conteneur -->
     </section>
