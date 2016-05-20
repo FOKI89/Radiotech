@@ -19,6 +19,8 @@ class radiotech_Main
     {
         $this->create_CPTs();
         $this->create_taxonomies();
+        //$users = new radiotech_User();
+        
     }
 
     private function create_CPTs()
@@ -55,7 +57,7 @@ class radiotech_Main
             'label' => __(pll__('Emission'), 'radiotech'),
             'description' => __(pll__('Une émission publiée par un contributeur'), 'radiotech'),
             'labels' => $labels,
-            'supports' => array('excerpt', 'author', 'comments', 'editor',),
+            'supports' => array('editor', 'title'),
             'taxonomies' => array('category', 'post_tag'),
             'hierarchical' => false,
             'public' => true,
@@ -106,7 +108,7 @@ class radiotech_Main
             'label' => __(pll__('Emission'), 'radiotech'),
             'description' => __(pll__('Un badge publiée par un contributeur'), 'radiotech'),
             'labels' => $labels,
-            'supports' => array('excerpt', 'author', 'comments', 'editor',),
+            'supports' => array('author', 'editor', 'title'),
             'taxonomies' => array('category', 'post_tag'),
             'hierarchical' => false,
             'public' => true,
@@ -131,9 +133,16 @@ class radiotech_Main
 
     }
 
+    public function upgradeUser($user_id)
+    {
+        $wp_user_object = new WP_User($user_id);
+        $wp_user_object->set_role('contributor');
+    }
+
 
 }
 
 // Déclaration Class radiotech_Main
 $radiotech = new radiotech_Main();
 add_action('init', array($radiotech, 'init'), 0);
+add_action('um_after_user_is_approved', array($radiotech, 'upgradeUser') , 10 );
