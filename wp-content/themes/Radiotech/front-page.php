@@ -6,11 +6,10 @@
 get_header();
 ?>
     <section>
-        <header>
-            <h1><?php the_title(); ?></h1>
-        </header>
-        <div class="conteneur">
+        <div class="container">
             <div class="content">
+
+                <?php get_template_part('partials/_publicite'); ?>
                 <?php
                 if (have_posts()) {
                     while (have_posts()) {
@@ -22,10 +21,7 @@ get_header();
                     _e("Sorry, no content matches your request", "radiotech");
                 }
                 ?>
-
-                <form action="#">
-                    <input type="file">
-                </form>
+                
             </div><!-- Fin div content -->
         </div><!-- Fin div conteneur -->
     </section>

@@ -26,7 +26,7 @@
 		radiotech_setupPostSupport();
 		radiotech_setupImageFormats();
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menu( 'main-menu', __( 'Super Menu') );
+		register_nav_menu( 'main-menu', __( 'primary') );
 
 		add_action( 'wp_enqueue_scripts', 'radiotech_enqueueScripts' );
 

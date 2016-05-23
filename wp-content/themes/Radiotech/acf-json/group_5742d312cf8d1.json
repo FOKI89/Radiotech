@@ -1,0 +1,66 @@
+{
+    "key": "group_5742d312cf8d1",
+    "title": "Lien et sous-titre de la publicit\u00e9",
+    "fields": [
+        {
+            "key": "field_5742df3f321e7",
+            "label": "Lien Publicit\u00e9",
+            "name": "lien-pub",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5742d326a6c85",
+            "label": "Sous-titre de la publicit\u00e9",
+            "name": "sous-titre-pub",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "publicite"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "comments",
+        "author"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1464000392
+}
