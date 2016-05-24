@@ -1,7 +1,7 @@
 <?php
 // Template des publicités
 ?>
-<div class="bloc-publicite">
+<div class="bloc publicite">
     <div class="container">
         <h2><?php _e('Publicités', 'radiotech'); ?></h2>
         <?php
@@ -19,10 +19,15 @@
                         // get a field value
                         $sousTitre = get_field('sous-titre-pub', $post->ID);
                         $lien = get_field('lien-pub', $post->ID);
-                        var_dump($sousTitre);?>
-                        <li><a href="<?php echo $lien; ?>" target="_blank"><img src="" alt=""><span><?php echo $sousTitre;?></span><?php the_title();?></span></a></li>
+                        ?>
+                        <li>
+                            <a href="<?php echo $lien; ?>" target="_blank">
+                                <?php the_post_thumbnail('full');?>
+                                <?php the_title(); // Affiche le titre de la publicité ?>
+                                <span><?php echo $sousTitre;?></span>
+                            </a>
+                        </li>
                         <?php
-
                         wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
                     }
                 } ?>
@@ -30,7 +35,6 @@
         <?php } else {
             // no rows found
         }
-
         ?>
     </div>
 </div>
