@@ -7,11 +7,10 @@ get_header();
 ?>
     </style>
     <section>
-        <header>
-            <h1><?php the_title(); ?></h1>
-        </header>
-        <div class="conteneur">
+        <div class="container">
             <div class="content">
+
+                <?php get_template_part('partials/_publicite'); ?>
                 <?php
                 if (have_posts()) {
                     while (have_posts()) {

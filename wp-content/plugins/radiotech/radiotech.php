@@ -14,12 +14,14 @@ class radiotech_Main
 
     const CPT_EMISSION = 'emission';
     const CPT_BADGE = 'badge';
+    const CPT_PUB = 'publicite';
 
     public function init()
     {
         $this->create_CPTs();
         $this->create_taxonomies();
         //$users = new radiotech_User();
+        $this->add_option_page();
         
     }
 
@@ -57,7 +59,7 @@ class radiotech_Main
             'label' => __(pll__('Emission'), 'radiotech'),
             'description' => __(pll__('Une émission publiée par un contributeur'), 'radiotech'),
             'labels' => $labels,
-            'supports' => array('editor', 'title'),
+            'supports' => array('editor', 'title', 'thumbnail',),
             'taxonomies' => array('category', 'post_tag'),
             'hierarchical' => false,
             'public' => true,
@@ -108,7 +110,7 @@ class radiotech_Main
             'label' => __(pll__('Emission'), 'radiotech'),
             'description' => __(pll__('Un badge publiée par un contributeur'), 'radiotech'),
             'labels' => $labels,
-            'supports' => array('author', 'editor', 'title'),
+            'supports' => array('author', 'editor', 'title', 'thumbnail'),
             'taxonomies' => array('category', 'post_tag'),
             'hierarchical' => false,
             'public' => true,
@@ -126,6 +128,56 @@ class radiotech_Main
         );
         register_post_type(self::CPT_BADGE, $args);
 
+        // Register Custom Post Type Publicités
+        $labels = array(
+            'name' => _x('Publicités', 'Post Type General Name', 'radiotech'),
+            'singular_name' => _x('Publicité', 'Post Type Singular Name', 'radiotech'),
+            'menu_name' => __('Publicités', 'radiotech'),
+            'name_admin_bar' => __('Publicités', 'radiotech'),
+            'archives' => __('Archives de publicité', 'radiotech'),
+            'parent_item_colon' => __('Parent de publicité', 'radiotech'),
+            'all_items' => __('Toutes les publicités', 'radiotech'),
+            'add_new_item' => __('Ajouter une nouvelle publicité', 'radiotech'),
+            'add_new' => __('Ajouter une nouvelle publicité', 'radiotech'),
+            'new_item' => __('Nouvelle publicité', 'radiotech'),
+            'edit_item' => __('Editer la publicité', 'radiotech'),
+            'update_item' => __('Mettre à jour la publicité', 'radiotech'),
+            'view_item' => __('Voir la publicité', 'radiotech'),
+            'search_items' => __('Rechercher une publicité', 'radiotech'),
+            'not_found' => __('Non trouvée', 'radiotech'),
+            'not_found_in_trash' => __('Non trouvée dans la corbeille', 'radiotech'),
+            'featured_image' => __('Image d\'illustration', 'radiotech'),
+            'set_featured_image' => __('Ajouter une image d\'illustration', 'radiotech'),
+            'remove_featured_image' => __('Retirer l\'image d\'illustration', 'radiotech'),
+            'use_featured_image' => __('Utiliser comme image d\'illustration', 'radiotech'),
+            'insert_into_item' => __('Insérer dans les publicités', 'radiotech'),
+            'uploaded_to_this_item' => __('Uploader pour ce publicité', 'radiotech'),
+            'items_list' => __('Liste des publicités', 'radiotech'),
+            'items_list_navigation' => __('Liste de la navigation des publicités', 'radiotech'),
+            'filter_items_list' => __('Filtre de la liste des publicités', 'radiotech'),
+        );
+        $args = array(
+            'label' => __('Publicité', 'radiotech'),
+            'description' => __('Une publicité', 'radiotech'),
+            'labels' => $labels,
+            'supports' => array('title', 'thumbnail'),
+            'taxonomies' => array(''),
+            'hierarchical' => false,
+            'public' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'menu_position' => 5,
+            'menu_icon' => 'dashicons-star-empty',
+            'show_in_admin_bar' => true,
+            'show_in_nav_menus' => true,
+            'can_export' => true,
+            'has_archive' => true,
+            'exclude_from_search' => false,
+            'publicly_queryable' => true,
+            'capability_type' => 'page',
+        );
+        register_post_type(self::CPT_PUB, $args);
+
     }
 
     private function create_taxonomies()
@@ -133,12 +185,21 @@ class radiotech_Main
 
     }
 
+    private function add_option_page(){
+        if( function_exists('acf_add_options_sub_page') ) {
+            acf_add_options_sub_page(array(
+                'title' => 'Gestion des publicités',
+                'parent' => 'themes.php',
+                'capability' => 'manage_options'
+            ));
+        }
+    }
+
     public function upgradeUser($user_id)
     {
         $wp_user_object = new WP_User($user_id);
         $wp_user_object->set_role('contributor');
     }
-
 
 }
 

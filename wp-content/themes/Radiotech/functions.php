@@ -32,7 +32,6 @@ require_once get_template_directory() . '/inc/utils.php';
 
 add_action( 'wp_enqueue_scripts', 'add_js_scripts' );
 function add_js_scripts() {
-	wp_enqueue_script( 'stream', get_template_directory_uri().'/js/stream.js', array('jquery'), '1.0', true );
 	// pass Ajax Url to scream.js
 	wp_localize_script('stream', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 }
