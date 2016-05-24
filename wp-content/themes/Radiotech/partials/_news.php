@@ -1,7 +1,7 @@
 <?php
 // Template des Nouveautés
 // the query
-$arg = array('post_type'  => $radiotech::CPT_EMISSION, 'orderby' => 'date' ,'post_limits' => 6,);
+$args = array('post_type'  => radiotech_Main::CPT_EMISSION , 'orderby' => 'date' ,'post_limits' => 6,);
 $newsQuery = new WP_Query( $args ); ?>
 <?php if ( $newsQuery->have_posts() ) { ?>
 <div class="bloc nouveaute">
@@ -15,7 +15,7 @@ $newsQuery = new WP_Query( $args ); ?>
                     <a href="<?php echo the_permalink(); ?>">
                         <?php the_post_thumbnail('full');?>
                         <?php the_title(); // Affiche le titre de l'emission ?>
-                        <span><?php echo $sousTitre;?></span>
+                        <span><?php //echo $sousTitre;?></span>
                     </a>
                 </li>
             <?php }

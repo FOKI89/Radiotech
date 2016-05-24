@@ -1,20 +1,18 @@
 <?php
 /**
- * Template de la Homepage
- * Sert à afficher tout contenu/URL ne possédant de la homepage
+ * Template des articles/emissions/badges seuls
  */
 get_header();
 ?>
     <section>
         <div class="container">
             <div class="content">
-                <?php get_template_part('partials/_publicite'); ?>
-                <?php get_template_part('partials/_news'); ?>
                 <?php
                 if (have_posts()) {
                     while (have_posts()) {
-                        the_post();
-                        the_content();
+                        the_post();?>
+                        <h2><?php the_title(); ?></h2>
+                        <?php the_content();
                     } // end while
                 } else {
                     // Aucun contenu trouvé
