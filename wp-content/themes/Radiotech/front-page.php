@@ -5,6 +5,7 @@
  */
 get_header();
 ?>
+    </style>
     <section>
         <div class="container">
             <div class="content">
@@ -21,7 +22,6 @@ get_header();
                     _e("Sorry, no content matches your request", "radiotech");
                 }
                 ?>
-                
             </div><!-- Fin div content -->
         </div><!-- Fin div conteneur -->
     </section>
