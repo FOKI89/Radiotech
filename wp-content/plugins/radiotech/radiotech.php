@@ -22,7 +22,7 @@ class radiotech_Main
         $this->create_taxonomies();
         //$users = new radiotech_User();
         $this->add_option_page();
-        
+
     }
 
     private function create_CPTs()
@@ -185,8 +185,9 @@ class radiotech_Main
 
     }
 
-    private function add_option_page(){
-        if( function_exists('acf_add_options_sub_page') ) {
+    private function add_option_page()
+    {
+        if (function_exists('acf_add_options_sub_page')) {
             acf_add_options_sub_page(array(
                 'title' => 'Gestion des publicités',
                 'parent' => 'themes.php',
@@ -201,9 +202,30 @@ class radiotech_Main
         $wp_user_object->set_role('contributor');
     }
 
-}
+    public function initialisation_metaboxes()
+    {
+        //on utilise la fonction add_metabox() pour initialiser une metabox
+        add_meta_box('box_upload_emission', 'Uploader une emission', array($this, 'box_upload_emission'), self::CPT_EMISSION, 'normal', 'high', null);
+    }
 
+    public function box_upload_emission()
+    {
+        //$val = get_post_meta($post->ID,'_emission_path',true);
+        echo '<label for="upload_emission">Uploader une Emission : </label>';
+        echo '<input id="upload_emission" type="file" name="upload_emission" accept="audio/*"/>';
+    }
+
+    public function save_emission($post_ID){
+        // si la metabox est définie, on sauvegarde sa valeur
+       if(isset($_POST['upload_emission'])){
+            update_post_meta($post_ID,'_emission_path', esc_html($_POST['upload_emission']));
+        }
+    }
+
+}
 // Déclaration Class radiotech_Main
 $radiotech = new radiotech_Main();
 add_action('init', array($radiotech, 'init'), 0);
-add_action('um_after_user_is_approved', array($radiotech, 'upgradeUser') , 10 );
+add_action('um_after_user_is_approved', array($radiotech, 'upgradeUser'), 10);
+add_action('add_meta_boxes', array($radiotech, 'initialisation_metaboxes'), 10);
+add_action('save_post',array($radiotech, 'save_emission'), 10);
