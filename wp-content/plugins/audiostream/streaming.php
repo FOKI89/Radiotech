@@ -1,7 +1,7 @@
 <?php
 
-	class AudioStream
-	{
+    class AudioStream
+    {
     private $path = "";
     private $stream = "";
     private $buffer = 102400 * 8;
@@ -9,9 +9,10 @@
     private $end    = -1;
     private $size   = 0;
  
-    function __construct($fileName) 
+    function __construct($user_id, $filename) 
     {
-        $this->path = "ftp://192.168.4.92/".$fileName;
+        $fileName = str_replace(" ", "\x20", $fileName);
+        $this->path = "ftp://anonymous:@192.168.4.92/".$user_id."/".$filename;
     }
      
     /**
@@ -128,7 +129,7 @@
         $this->end();
     }
 }
-	$stream = new AudioStream($_GET["filename"]);
-	$stream->start();
-	exit;
+    $stream = new AudioStream($_GET["user_id"], $_GET["filename"]);
+    $stream->start();
+    exit;
 ?>
