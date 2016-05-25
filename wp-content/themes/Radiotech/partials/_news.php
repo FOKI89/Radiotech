@@ -13,11 +13,8 @@ $newsQuery = new WP_Query( $args ); ?>
                 $newsQuery->the_post();
                 $author = get_the_author();?>
                 <li>
-                    <a href="<?php echo the_permalink(); ?>">
+                    <a href="<?php// echo the_permalink(); ?>">
                         <?php the_post_thumbnail('full');?>
-                        <span><?php echo $author;?></span>
-                        <?php the_title(); // Affiche le titre de l'emission ?>
-
                     </a>
                 </li>
             <?php }

@@ -22,9 +22,13 @@ $mainFontHeavier: 'OpenSans-Semibold';
 $mainFontHeavy: 'gotham-medium';
 $mainFontLight:'OpenSans-Light';
 
- $grisFonce : #111111;
+ $grisClair : #bfc7d4;
+ $grisFonce : #1b1b1b;
  $blanc : #ffffff;
  $noir : #000000;
+ $rouge : #e31013;
+ $bleuFonce: #1e1c3c;
+ $bleuClair: #0989cb;
 
 
  
@@ -32,16 +36,15 @@ $backgroundColor: $blanc;
 $backgroundColorHeader: $noir;
 $backgroundColorFooter: $grisFonce;
 
-$textColor: #ffffff;
-$textColor2: #000000; // Noir
-$textColor3: #2c292d; // Gris foncé
-$textColor4: #97bf0d; // Vert clair
-$textColor5: #E7501E; // orange clair
+$textColor: $blanc;
+$textColor2: $noir;
+$textColor3: $rouge;
+$textColor4: $grisFonce;
+$textColor5: $grisClair;
 
 
 /** Components */
-$backgroundColorInput:#f5f5f5; // blanc cassé
-$backgroundColorInput2:#333333; // gris très foncé
+
 
  /*------------------------------------*\
      GENERAL SETTING

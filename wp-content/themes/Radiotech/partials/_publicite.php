@@ -23,9 +23,9 @@
                         <li>
                             <a href="<?php echo $lien; ?>" target="_blank">
                                 <?php the_post_thumbnail('full');?>
-                                <?php the_title(); // Affiche le titre de la publicité ?>
-                                <span><?php echo $sousTitre;?></span>
                             </a>
+                            <p><?php the_title(); // Affiche le titre de la publicité ?></p>
+                            <p><?php echo $sousTitre;?></p>
                         </li>
                         <?php
                         wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
