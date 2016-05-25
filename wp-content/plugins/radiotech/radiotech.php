@@ -8,18 +8,28 @@ Author URI: http://www.magnetic.coop
 Version: 0.0.1
 */
 $radiotechPluginDir = plugin_dir_path(__FILE__);
+require_once __DIR__ . '/RadiotechUploader.php';
 
 class radiotech_Main
 {
+    const FTP_HOST = '192.168.4.92';
+    const FTP_USER = 'anonymous';
+    const FTP_PASWWORD = '';
 
     const CPT_EMISSION = 'emission';
     const CPT_BADGE = 'badge';
     const CPT_PUB = 'publicite';
 
+    /**
+     * @var RadiotechUploader
+     */
+    private static $uploader;
+
     public function init()
     {
         $this->create_CPTs();
         $this->create_taxonomies();
+        static::$uploader = new RadiotechUploader(self::FTP_HOST, self::FTP_USER, self::FTP_PASWWORD);
         //$users = new radiotech_User();
         $this->add_option_page();
 
@@ -200,6 +210,11 @@ class radiotech_Main
     {
         $wp_user_object = new WP_User($user_id);
         $wp_user_object->set_role('contributor');
+    }
+    
+    public static function upload($user_id, $file)
+    {
+        static::$uploader->upload($user_id, $file);
     }
 
     public function initialisation_metaboxes()
