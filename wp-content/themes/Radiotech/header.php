@@ -34,13 +34,5 @@
         </nav>
     </div>
 </header>
-<div class="slider">
-    <h2>Informatique</h2>
-    <div><section>
-            <span class="categorie_slide"> <img src="<?php radiotech_th();?>/logo-rond.PNG" alt="play" ><span>Lire la radio </span><BR>informatique</span>
-        </section></div>
-    <section>
-        <span class="chiffres">Déjà 10 456 abonnés<BR> et 111 530 téléchargements de podcasts !</span>
-    </section>
-</div>
+
 
