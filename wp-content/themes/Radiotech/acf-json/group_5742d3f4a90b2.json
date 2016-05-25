@@ -1,0 +1,67 @@
+{
+    "key": "group_5742d3f4a90b2",
+    "title": "Gestion des publicit\u00e9s affich\u00e9s",
+    "fields": [
+        {
+            "key": "field_5742d4212dc87",
+            "label": "Liste des publicit\u00e9s \u00e0 afficher",
+            "name": "liste-pub",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": "",
+            "max": 6,
+            "layout": "table",
+            "button_label": "Ajouter une publicit\u00e9",
+            "sub_fields": [
+                {
+                    "key": "field_5742d4712dc88",
+                    "label": "Publicit\u00e9",
+                    "name": "pub",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "publicite"
+                    ],
+                    "taxonomy": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-gestion-des-publicites"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1463997605
+}

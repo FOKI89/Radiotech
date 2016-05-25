@@ -1,0 +1,92 @@
+ /*------------------------------------*\
+     IMPORT FONT
+ \*------------------------------------*/
+
+
+
+@font-face {
+    font-family: "gotham-light";
+    src: url('../font/GOTHAM-LIGHT.ttf');
+}
+@font-face {
+    font-family: "gotham-bold";
+    src: url('../font/GOTHAM-BOLD.ttf');
+}
+@font-face {
+    font-family: "gotham-medium";
+    src: url('../font/GOTHAM-MEDIUM.ttf');
+}
+
+$mainFont: 'gotham-light';
+$mainFontHeavier: 'OpenSans-Semibold';
+$mainFontHeavy: 'gotham-medium';
+$mainFontLight:'OpenSans-Light';
+
+ $grisFonce : #111111;
+ $blanc : #ffffff;
+ $noir : #000000;
+
+
+ 
+$backgroundColor: $blanc;
+$backgroundColorHeader: $noir;
+$backgroundColorFooter: $grisFonce;
+
+$textColor: #ffffff;
+$textColor2: #000000; // Noir
+$textColor3: #2c292d; // Gris foncé
+$textColor4: #97bf0d; // Vert clair
+$textColor5: #E7501E; // orange clair
+
+
+/** Components */
+$backgroundColorInput:#f5f5f5; // blanc cassé
+$backgroundColorInput2:#333333; // gris très foncé
+
+ /*------------------------------------*\
+     GENERAL SETTING
+ \*------------------------------------*/
+body{
+    background: $backgroundColor;
+    font-family: $mainFont, arial, sans-serif;
+    width: 100%;
+}
+
+h1{
+    font-family: $mainFontHeavy, arial, sans-serif;
+}
+
+h2{
+    font-family: $mainFontLight, arial, sans-serif;
+}
+h3{
+    font-family: $mainFontHeavy, arial, sans-serif;
+}
+
+
+h2, h3{
+    text-transform:uppercase;
+    margin-bottom:10px;
+    font-size:35px;
+    color:$textColor2;
+}
+
+p{
+    font-family: $mainFont, arial, sans-serif;
+    font-size:16px;
+	margin-bottom:20px;
+    color: $textColor2;
+}
+
+a{
+    text-decoration: none;
+    color: $textColor2;
+}
+
+a, a:hover, a:active, a:focus{
+    font-family: $mainFont, arial, sans-serif;
+}
+
+form input {
+    font-family: $mainFontHeavy, arial, sans-serif;
+}
