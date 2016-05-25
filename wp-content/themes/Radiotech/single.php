@@ -16,7 +16,6 @@ get_header();
                         <audio src=""></audio>
                         <h3>Description:</h3>
                         <?php the_content();
-
                 } else {
                     // Aucun contenu trouvé
                     _e("Sorry, no content matches your request", "radiotech");
