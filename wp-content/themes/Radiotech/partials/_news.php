@@ -17,7 +17,6 @@ $newsQuery = new WP_Query( $args ); ?>
                         <?php the_post_thumbnail('full');?>
                         <span><?php echo $author;?></span>
                         <?php the_title(); // Affiche le titre de l'emission ?>
-
                     </a>
                 </li>
             <?php }
