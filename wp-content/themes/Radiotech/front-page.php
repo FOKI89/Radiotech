@@ -18,11 +18,12 @@ get_header();
         </section>
           </div>   
     </div>
+    <?php get_template_part('partials/_publicite'); ?>
+    <?php get_template_part('partials/_news'); ?>
+    <?php get_template_part('partials/_profilsFrontPage'); ?>
     <section>
         <div class="container">
             <div class="content">
-                <?php get_template_part('partials/_publicite'); ?>
-                <?php get_template_part('partials/_news'); ?>
                 <?php
                 if (have_posts()) {
                     while (have_posts()) {
@@ -34,14 +35,8 @@ get_header();
                     _e("Sorry, no content matches your request", "radiotech");
                 }
                 ?>
-
-                <form action="#" method="post" enctype="multipart/form-data" id="form_upload">
-                    <input type="file" name="file" id="file">
-                    <input type="submit">
-                </form>
             </div><!-- Fin div content -->
         </div><!-- Fin div conteneur -->
     </section>
 <?php
-get_sidebar('upload');
 get_footer();

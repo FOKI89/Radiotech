@@ -22,10 +22,11 @@ $category = $wp_query->get_queried_object();
                                     <li>
                                         <a href="<?php echo the_permalink(); ?>">
                                             <?php the_post_thumbnail('full');?>
-                                            <p><?php the_author(); ?></p>
-                                            <p><?php the_title(); // Affiche le titre de l'emission ?></p>
-                                            <?php the_content(); ?>
                                         </a>
+                                        <a href="<?php ?>"><?php the_author(); ?></a>
+                                        <p><?php the_title(); // Affiche le titre de l'emission ?></p>
+                                        <?php the_content(); ?>
+
                                     </li>
                                 <?php }
                                 wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
