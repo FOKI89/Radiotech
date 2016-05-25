@@ -9,12 +9,14 @@ get_header();
         <h2>Informatique</h2>
         <div>
             <section>
-                <span class="categorie_slide"> <img src="<?php radiotech_th(); ?>/logo-rond.PNG" alt="play"><span>Lire la radio </span><BR>informatique</span>
+                <span class="categorie_slide"> <div class="logo-rond"></div><span>Lire la radio </span><BR>informatique</span>
             </section>
         </div>
+        <div>
         <section>
-            <span class="chiffres">Déjà 10 456 abonnés<BR> et 111 530 téléchargements de podcasts !</span>
+            <span class="chiffres">Déjà <span>10 456</span> abonnés<BR> et <span>111 530</span> téléchargements de podcasts !</span>
         </section>
+          </div>   
     </div>
     <section>
         <div class="container">

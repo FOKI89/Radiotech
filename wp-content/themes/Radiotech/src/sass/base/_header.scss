@@ -9,7 +9,6 @@
 
 
 /*MENU*/
-
 header{
     width:100%;
     height:60px;
@@ -18,13 +17,27 @@ header{
 box-shadow: 0px 2px 23px -7px rgba(0,0,0,0.75);
     background:white;
     position:fixed;
-    top:33px;
+    top:0px;
 }
 header nav.main-nav{
     width:1280px;
     display:block;
      margin:0 auto;
    font-family: $mainFont;
+}
+header nav.main-nav form#searchform{
+
+    display: inline-block;
+    margin-top: 25px;
+    position: absolute;
+
+}
+
+header nav.main-nav form#searchform input:nth-child(2){
+position: absolute;
+    top:0;
+    right:0;
+    
 }
 header nav.main-nav li.menu-item{
     display:inline-block;
@@ -36,6 +49,8 @@ header nav.main-nav li.menu-item{
     text-transform: uppercase;
     font-family: $mainFont;
     
+}
+header nav.main-nav li.lang-item{
 }
 header nav.main-nav li.menu-item:hover{
     border-bottom:1px #e30513 solid;
@@ -72,6 +87,7 @@ header nav.main-nav input{
 header div.container{
     margin:0 auto;
 }
+
 
 /*SLIDER*/
 
@@ -99,18 +115,25 @@ div.slider section span.chiffres{
     font-size: 22px;
     font-family: $mainFont;
 }
-<<<<<<< HEAD
 div.slider section span.chiffres span{
     font-size: 25px;
     font-weight:bold;
 }
-=======
->>>>>>> 17f8730029d420ea64e29dd4ad363a89c63abac0
 div.slider section span.categorie_slide{
     font-size: 22px;
     font-family: $mainFont;
     font-weight: normal;
     text-transform: uppercase;
+}
+div.slider div.logo-rond{
+width: 74px;
+    height: 74px;
+    float: left;
+    margin-left: 30px;
+    display: inline-block;
+    background: url("../img/logo-rond.PNG") no-repeat;
+    margin-right: 30px;
+    margin-top: -10px;
 }
 div.slider section span.categorie_slide span{
     font-size: 22px;
@@ -137,16 +160,13 @@ div.slider section:nth-child(3){
 div.slider section{
    width: 1280px;
     margin: 0 auto;
-<<<<<<< HEAD
     color:white;
-=======
->>>>>>> 17f8730029d420ea64e29dd4ad363a89c63abac0
+    margin-keft:30px;
 
     
     
 }
 
-<<<<<<< HEAD
 div.slider div:nth-child(2){
   background: url("../img/bg-texte-slider.PNG") ;
     width:45%;
@@ -165,78 +185,3 @@ div.slider div:nth-child(3){
 div.slider section > span{
   width:50%;
 }
-
-header{
-    width:100%;
-    height:60px;
--webkit-box-shadow: 0px 2px 23px -7px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 2px 23px -7px rgba(0,0,0,0.75);
-box-shadow: 0px 2px 23px -7px rgba(0,0,0,0.75);
-    background:white;
-    position:fixed;
-    top:0px;
-}
-header nav.main-nav{
-    width:500px;
-    display:block;
-     margin:0 auto;
-   font-family: $mainFont;
-}
-header nav.main-nav li.menu-item{
-    display:inline-block;
-    margin-left:15px;
-    margin-right:15px;
-    font-size: 16px;
-    color:black;
-     vertical-align: bottom;
-    text-transform: uppercase;
-    font-family: $mainFont;
-    
-}
-header nav.main-nav li.menu-item:hover{
-    border-bottom:1px #e30513 solid;
-}
-header nav.main-nav li.menu-item:nth-child(1):hover{
-    border:none;
-}
-header nav.main-nav li.menu-item:nth-child(1){
-    background: url("../img/LOGO.PNG") no-repeat;
-    width:170px;
-    height:41px;
-    text-align: left;
-    font-size: 0;
-        vertical-align: middle;
-        margin-top: 8px;
-    cursor: pointer;
-}
-header nav.main-nav ul{
-   width:1280px;
-    margin:0 auto;
-    display: inline;
- 
-    
-    
-}
-header nav.main-nav input{
-    vertical-align: bottom;
-   height:25px;
-    font-family: arial;
-    color:#b6b6b6;
-}
-
-
-header div.container{
-    margin:0 auto;
-}
-  
-=======
-div.slider div{
-  background: url("../img/bg-texte-slider.PNG") ;
-    width:50%;
-    padding: 20px 0px 20px 40px;
-}
-
-div.slider section > span{
-  width:50%;
-}
->>>>>>> 17f8730029d420ea64e29dd4ad363a89c63abac0
