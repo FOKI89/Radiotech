@@ -34,14 +34,8 @@ get_header();
                     _e("Sorry, no content matches your request", "radiotech");
                 }
                 ?>
-
-                <form action="#" method="post" enctype="multipart/form-data" id="form_upload">
-                    <input type="file" name="file" id="file">
-                    <input type="submit">
-                </form>
             </div><!-- Fin div content -->
         </div><!-- Fin div conteneur -->
     </section>
 <?php
-get_sidebar('upload');
 get_footer();

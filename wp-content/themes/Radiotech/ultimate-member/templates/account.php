@@ -23,7 +23,7 @@ function um_account_content_hook_upload( $output ){
 
     <div class="um-field">
 
-        <h1>Test</h1>
+        <?php get_template_part('partials/_upload'); ?>
 
     </div>
 

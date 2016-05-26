@@ -17,6 +17,11 @@ $(document).ready(function () {
                 .find('.upload_progress:last');
         },
 
+        open: function (e) {
+            e.preventDefault();
+            $('#form_upload').find('.file').trigger('click');
+        },
+
         runUpload: function (e) {
             e.preventDefault();
 
@@ -25,45 +30,52 @@ $(document).ready(function () {
                 return 'Upload en cours. Voulez-vous quitter ?';
             };
 
-            var form = $(this);
-            var formData = new FormData(form[0]);
+            var form = $('#form_upload');
 
-            form.trigger('reset');
-            
-            var uploadProgress = upload_modal.createUploadProgress();
-            var index = upload_modal.uploads.push(uploadProgress[0]) - 1;
+            $.each(form.find('.file')[0].files, function (key, file) {
+                var formData = new FormData();
+                formData.append('file', file);
+                formData.append('action', 'upload');
 
-            $.ajax({
-                type: 'POST',
-                url: form.attr('action'),
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: 'json',
-                success: function (response) {
-                    uploadProgress
-                        .find('.progress').css('width', '100%').end()
-                        .find('.text').html('Terminé')
-                    ;
-                    upload_modal.uploads.splice(index, 1);
-                },
-                complete: function () {
-                    window.onbeforeunload = null;
-                },
-                xhr: function () {
-                    var xhr = $.ajaxSettings.xhr();
+                var uploadProgress = upload_modal.createUploadProgress();
+                var index = upload_modal.uploads.push(uploadProgress[0]) - 1;
+                //uploadProgress.find('.text').text(file.name);
 
-                    xhr.upload.addEventListener("progress", function(e){
-                        uploadProgress.find('.progress').css('width', e.loaded / e.total * 90 + '%');
-                    }, false);
+                $.ajax({
+                    type: 'POST',
+                    url: form.data('action'),
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    success: function (response) {
+                        uploadProgress
+                            .find('.progress').css('width', '100%').end()
+                            .find('.text').html('Terminé')
+                        ;
+                        upload_modal.uploads.splice(index, 1);
+                    },
+                    complete: function () {
+                        window.onbeforeunload = null;
+                    },
+                    xhr: function () {
+                        var xhr = $.ajaxSettings.xhr();
 
-                    xhr.upload.addEventListener("load", function (e) {
-                        uploadProgress.find('.text').show();
-                    });
+                        xhr.upload.addEventListener("progress", function(e){
+                            uploadProgress.find('.progress').css('width', e.loaded / e.total * 90 + '%');
+                        }, false);
 
-                    return xhr;
-                }
+                        xhr.upload.addEventListener("load", function (e) {
+                            uploadProgress.find('.text').show();
+                        });
+
+                        return xhr;
+                    }
+                });
+
             });
+
+            upload_modal.reset();
         },
 
         close: function () {
@@ -77,11 +89,15 @@ $(document).ready(function () {
             upload_modal.el.hide();
         },
 
-        reset: function (e) {
-            
+        reset: function () {
+            var file = $('#form_upload').find('.file');
+            file.replaceWith(file.val('').clone(true));
         }
     };
 
     upload_modal.init();
-    $('#form_upload').on('submit', upload_modal.runUpload);
+    $('#form_upload')
+        .on('click', '.submit_upload', upload_modal.open)
+        .on('change', '.file', upload_modal.runUpload)
+    ;
 });
