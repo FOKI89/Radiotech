@@ -153,4 +153,7 @@
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+		// Chargement sélectif du js nécessaire au progressive dowload
+		wp_enqueue_script( 'upload', get_template_directory_uri().'/js/upload.js', array('jquery'), '1.0', true );
 	}

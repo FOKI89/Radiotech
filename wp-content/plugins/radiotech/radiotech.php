@@ -214,7 +214,7 @@ class radiotech_Main
     
     public static function upload($user_id, $file)
     {
-        static::$uploader->upload($user_id, $file);
+        return static::$uploader->upload($user_id, $file);
     }
 
     public function initialisation_metaboxes()

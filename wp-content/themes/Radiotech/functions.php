@@ -48,12 +48,20 @@ function add_js_scripts() {
 	);
 	//wp_localize_script('stream', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 	wp_localize_script('stream', 'data_array', $data_array );
+	wp_localize_script('upload', 'ajaxurl', admin_url( 'admin-ajax.php' ));
+}
+
+add_action('wp_ajax_upload', 'upload');
+add_action('wp_ajax_nopriv_upload', 'upload');
+function upload() {
+	require_once ABSPATH . '/wp-content/plugins/radiotech/radiotech.php';
+	try {
+		$response = radiotech_Main::upload(get_current_user_id(), $_FILES['file']['tmp_name']);
+	} catch (Exception $ex) {
+		http_response_code(500);
+		$response = false;
+	}
+	die(json_encode($response));
 }
 
 //pll_register_string('radiotech','Coucou, le monde');
-
-function my_js_include_function() {
-    wp_enqueue_script( 'upload.js', get_template_directory_uri() . '/js/upload.js', ['jquery'], '1.0', true );
-}
-
-add_action( 'wp_enqueue_scripts', 'my_js_include_function' );
