@@ -59,6 +59,8 @@
 
 div.bloc.publicite{
   background: #EFEFEF;
+  border-top:1px solid $textColor4;
+  border-bottom:1px solid $textColor4;
 }
 
 div.bloc.auteurs a{

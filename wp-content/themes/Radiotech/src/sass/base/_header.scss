@@ -4,6 +4,11 @@
 // **** HEADER **** \\
 // *************** \\
 
+#wpadminbar{
+  display:none;
+}
+
+
 /*MENU*/
 header {
   width: 100%;
@@ -73,8 +78,13 @@ header nav.main-nav li.menu-item:nth-child(1) {
   cursor: pointer;
 }
 
+header nav.main-nav li.menu-item:nth-child(1) a{
+  display: block;
+  height:41px;
+}
+
 header nav.main-nav ul {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   display: inline;
 
