@@ -23,7 +23,6 @@ define("BUILD_VERSION","00000000001");
 // Supprime l'admin bar
 add_filter('show_admin_bar', '__return_false');
 
-
 /**
  * Init et config du thème
  */

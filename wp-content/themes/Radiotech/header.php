@@ -1,5 +1,5 @@
 <?php wp_head(); ?>
-<body <?php body_class();?>>
+<body <?php body_class(); // Ajoute les classes des pages au body ?>>
 <header>
     <div class="container">
         <nav class="main-nav">

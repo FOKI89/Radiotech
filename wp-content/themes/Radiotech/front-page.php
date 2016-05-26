@@ -18,6 +18,7 @@ get_header();
         </section>
           </div>   
     </div>
+    <!-- Templates des blocs de la home -->
     <?php get_template_part('partials/_publicite'); ?>
     <?php get_template_part('partials/_news'); ?>
     <?php get_template_part('partials/_profilsFrontPage'); ?>

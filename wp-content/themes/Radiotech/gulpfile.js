@@ -1,6 +1,6 @@
 /**
- * Fichier de configuration gulp pour le aetd-master
- * Créé par Mickaël Adamadorassy (m.adama@magnetic.coop) - 02/11/2015
+ * Fichier de configuration gulp pour Radiotech
+ * Créé par Ludovic Sire (l.sire@magnetic.coop) - 02/05/2016
  */
 
 var gulp = require('gulp');

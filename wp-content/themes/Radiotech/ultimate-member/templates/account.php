@@ -1,4 +1,5 @@
 <?php
+get_header();
 add_filter('um_account_page_default_tabs_hook', 'upload_tab_in_um', 100 );
 function upload_tab_in_um( $tabs ) {
     $tabs[800]['upload']['icon'] = 'um-faicon-cloud-upload';
