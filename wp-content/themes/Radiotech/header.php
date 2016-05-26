@@ -31,6 +31,7 @@
                     <input type="submit" id="searchsubmit" value="Search" class="btn" />
                 </div>
             </form>
+			<a class="login" href="#"></a>
         </nav>
     </div>
 </header>
