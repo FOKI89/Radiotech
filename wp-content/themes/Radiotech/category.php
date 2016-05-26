@@ -25,8 +25,7 @@ $category = $wp_query->get_queried_object();
                                         </a>
                                         <a href="<?php ?>"><?php the_author(); ?></a>
                                         <p><?php the_title(); // Affiche le titre de l'emission ?></p>
-                                        <?php the_content(); ?>
-
+                                        
                                     </li>
                                 <?php }
                                 wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
