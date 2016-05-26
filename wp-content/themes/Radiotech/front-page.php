@@ -18,11 +18,12 @@ get_header();
         </section>
           </div>   
     </div>
+    <?php get_template_part('partials/_publicite'); ?>
+    <?php get_template_part('partials/_news'); ?>
+    <?php get_template_part('partials/_profilsFrontPage'); ?>
     <section>
         <div class="container">
             <div class="content">
-                <?php get_template_part('partials/_publicite'); ?>
-                <?php get_template_part('partials/_news'); ?>
                 <?php
                 if (have_posts()) {
                     while (have_posts()) {

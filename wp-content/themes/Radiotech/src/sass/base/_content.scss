@@ -1,1 +1,74 @@
 // Design du contenu
+
+.container{
+  max-width:1280px;
+  margin: 0 auto;
+}
+
+
+  div.bloc {
+    font-size: 0;
+    padding:40px 0;
+
+    h2{
+      font-family: $mainFont;
+      color:$textColor4;
+      position: relative;
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
+
+    h2::after{
+      content:"";
+      width:40px;
+      height:2px;
+      position: absolute;
+      left:0; bottom:-6px;
+      background: $textColor3;
+    }
+
+    ul li {
+      display: inline-block;
+      width: calc(100% / 6 - 10px);
+      margin-left: 10px;
+      text-align: center;
+      vertical-align: top;
+
+      p {
+        margin-bottom: 5px;
+        color:$textColor4;
+        text-align: left;
+      }
+      p:first-of-type {
+        color:$textColor3;
+        text-transform: uppercase;
+        font-family: $mainFontHeavy;
+      }
+
+      a{
+        display: block;
+        font-size: 14px;
+      }
+
+      a img{
+        max-width:100%;
+      }
+    }
+
+  }
+
+div.bloc.publicite{
+  background: #EFEFEF;
+  border-top:1px solid $textColor4;
+  border-bottom:1px solid $textColor4;
+}
+
+div.bloc.auteurs a{
+  min-height: 200px;
+  background:$textColor5;
+}
+
+.single section,
+.archive section{
+  margin-top: 60px;
+}

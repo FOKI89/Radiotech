@@ -155,6 +155,5 @@
 		}
 
 		// Chargement sélectif du js nécessaire au progressive dowload
-		wp_enqueue_script( 'stream', get_template_directory_uri().'/js/stream.js', array('jquery'), '1.0', true );
 		wp_enqueue_script( 'upload', get_template_directory_uri().'/js/upload.js', array('jquery'), '1.0', true );
 	}

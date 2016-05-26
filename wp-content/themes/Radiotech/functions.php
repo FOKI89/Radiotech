@@ -20,6 +20,10 @@
  */
 define("BUILD_VERSION","00000000001");
 
+// Supprime l'admin bar
+add_filter('show_admin_bar', '__return_false');
+
+
 /**
  * Init et config du thème
  */
@@ -30,21 +34,21 @@ require_once get_template_directory() . '/inc/setup.php';
  */
 require_once get_template_directory() . '/inc/utils.php';
 
+
+
+// Chargement sélectif du js nécessaire au progressive dowload
+wp_enqueue_script( 'stream', get_template_directory_uri().'/js/stream.js', array('jquery'), '1.0', true );
+
 add_action( 'wp_enqueue_scripts', 'add_js_scripts' );
 function add_js_scripts() {
 	// pass Ajax Url to scream.js
-	wp_localize_script('stream', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+	$data_array = array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'site_url' => get_site_url()
+	);
+	//wp_localize_script('stream', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+	wp_localize_script('stream', 'data_array', $data_array );
 	wp_localize_script('upload', 'ajaxurl', admin_url( 'admin-ajax.php' ));
-}
-
-add_action( 'wp_ajax_read_stream', 'read_stream' );
-add_action( 'wp_ajax_nopriv_read_stream', 'read_stream' );
-function read_stream() {
-require_once ABSPATH . '/wp-content/plugins/audiostream/audiostream.php';
-	
-	$stream = new AudioStream($_POST["param"]);
-	$stream->start();
-	exit;
 }
 
 add_action('wp_ajax_upload', 'upload');

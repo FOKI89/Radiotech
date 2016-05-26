@@ -14,17 +14,18 @@ $category = $wp_query->get_queried_object();
                 if ( $categoryQuery->have_posts() ) { ?>
                     <div class="bloc ">
                         <div class="container">
-                            <h2><?php _e('Nouveautés', 'radiotech'); ?></h2>
+                            <h2><?php echo $category->name; ?></h2>
                             <?php ?>
                             <ul>
                                 <?php while ( $categoryQuery->have_posts() ) {
                                     $categoryQuery->the_post(); ?>
                                     <li>
                                         <a href="<?php echo the_permalink(); ?>">
-                                            <?php the_post_thumbnail('full');
-                                            the_title(); // Affiche le titre de l'emission
-                                            the_content(); ?>
+                                            <?php the_post_thumbnail('full');?>
                                         </a>
+                                        <a href="<?php ?>"><?php the_author(); ?></a>
+                                        <p><?php the_title(); // Affiche le titre de l'emission ?></p>
+                                        
                                     </li>
                                 <?php }
                                 wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
