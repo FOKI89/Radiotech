@@ -25,8 +25,6 @@ get_header();
                 <form action="#">
                     <input type="file">
                 </form>
-                <button id="button" data-name="test-podcast.mp3" >Podcast</button>
-                <audio id="audio_player" controls="controls" poster="/wordpress/wp-content/themes/Radiotech/src/img/image.png" src=""></audio>
             </div><!-- Fin div content -->
         </div><!-- Fin div conteneur -->
     </section>
