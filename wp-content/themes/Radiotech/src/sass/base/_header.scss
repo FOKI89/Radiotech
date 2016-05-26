@@ -191,3 +191,17 @@ div.slider div:nth-child(3) {
 div.slider section > span {
   width: 50%;
 }
+
+
+
+a.login{
+	  background: url("../img/login.PNG") no-repeat 0 0;
+	width:33px;
+	height:26px;
+}
+
+a.login:hover{
+	  background: url("../img/login-actif.PNG") no-repeat 0 0;
+	width:33px;
+	height:26px;
+}
