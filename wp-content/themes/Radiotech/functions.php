@@ -20,6 +20,10 @@
  */
 define("BUILD_VERSION","00000000001");
 
+// Supprime l'admin bar
+add_filter('show_admin_bar', '__return_false');
+
+
 /**
  * Init et config du thème
  */
@@ -29,6 +33,8 @@ require_once get_template_directory() . '/inc/setup.php';
  * Fonctions utilitaires diverses
  */
 require_once get_template_directory() . '/inc/utils.php';
+
+
 
 // Chargement sélectif du js nécessaire au progressive dowload
 wp_enqueue_script( 'stream', get_template_directory_uri().'/js/stream.js', array('jquery'), '1.0', true );
